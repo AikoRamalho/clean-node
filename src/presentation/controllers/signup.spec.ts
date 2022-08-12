@@ -1,10 +1,8 @@
 // recebe um nome email e senha
 // retorna um usuario
 import { SignUpController } from './signup'
-import { MissingParamError } from '../errors/missing-params-error'
-import { InvalidParamError } from '../errors/invalid-param-error'
-import { EmailValidator } from '../protocols/email-validator'
-import { ServerError } from '../errors/server-error'
+import { MissingParamError, ServerError, InvalidParamError } from '../errors'
+import { EmailValidator } from '../protocols'
 
 interface SutTypes {
   sut: SignUpController

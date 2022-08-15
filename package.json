@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --passWithNoTests --watch",
-    "lint-staged": "lint-staged",
+    "lint-staged": "lint-staged --quiet",
     "prepare": "husky install",
-    "pre-commit": "lint-staged",
+    "pre-commit": "lint-staged --quiet",
     "test:staged": "jest --passWithNoTests"
   },
   "keywords": [],

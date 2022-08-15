@@ -9,8 +9,8 @@ export class SignUpController implements Controller {
     this.emailValidator = emailValidator
   }
 
-  // criar um validador atributo/metodo da classe
-  // faz um validor.create()
+  // create a request validator Class
+  // validor.create()
   handle (httpRequest: HttpRequest): HttpResponse {
     try {
       const requiredFields = ['name', 'email', 'password', 'passwordConfirmation']
@@ -21,11 +21,13 @@ export class SignUpController implements Controller {
         }
       }
 
-      if (httpRequest.body.password !== httpRequest.body.passwordConfirmation) {
+      const { email, password, passwordConfirmation } = httpRequest.body
+
+      if (password !== passwordConfirmation) {
         return badRequest(new InvalidParamError('passwordConfirmation'))
       }
       // TODO: create validation class
-      const isValid = this.emailValidator.isValid(httpRequest.body.email)
+      const isValid = this.emailValidator.isValid(email)
 
       if (!isValid) return badRequest(new InvalidParamError('email'))
       throw new Error('Method not implemented.')
